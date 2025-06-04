@@ -25,4 +25,8 @@
   <ItemGroup>
     <ProjectReference Include="..\MoonIDE.Lua\MoonIDE.Lua.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Settings\" />
+  </ItemGroup>
 </Project>

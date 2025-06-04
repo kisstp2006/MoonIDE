@@ -1,7 +1,6 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Threading; // Add this namespace for Dispatcher
-using Avalonia.VisualTree; // Add this namespace for VisualTreeAttachmentEventArgs
 using AvaloniaEdit.Highlighting; // Add this namespace for syntax highlighting definitions
 using MoonIDE.Console;
 using MoonIDE.Lua;
@@ -25,6 +24,7 @@ public partial class MainView : UserControl
         CodeEditor.Options.EnableTextDragDrop = true;
         CodeEditor.Options.ShowEndOfLine=true;
         CodeEditor.Options.ShowBoxForControlCharacters = true;
+        CodeEditor.Options.HideCursorWhileTyping = true;
 
 
 

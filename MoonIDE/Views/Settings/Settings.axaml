@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:MoonIDE.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MoonIDE.Views.Settings.SettingsView"
+             x:DataType="vm:SettingsViewModel">
+
+	<StackPanel>
+		<TextBlock Text="Editor Settings" FontSize="16" FontWeight="Bold" Margin="5"/>
+
+		<StackPanel Orientation="Horizontal" Margin="5">
+			<TextBlock Text="Font Size:" VerticalAlignment="Center" Width="100"/>
+			<NumericUpDown Width="50" Value="{Binding EditorFontSize}" Minimum="8" Maximum="24"/>
+		</StackPanel>
+
+		<StackPanel Orientation="Horizontal" Margin="5">
+			<TextBlock Text="Theme:" VerticalAlignment="Center" Width="100"/>
+			<ComboBox Width="150" ItemsSource="{Binding AvailableThemes}" SelectedItem="{Binding SelectedTheme}"/>
+		</StackPanel>
+
+		<TextBlock Text="Lua Language Settings" FontSize="16" FontWeight="Bold" Margin="5"/>
+
+		<StackPanel Orientation="Horizontal" Margin="5">
+			<TextBlock Text="Lua Executable Path:" VerticalAlignment="Center" Width="150"/>
+			<TextBox Width="200" Text="{Binding LuaExecutablePath}"/>
+			<Button Content="Browse" Command="{Binding BrowseLuaExecutableCommand}"/>
+		</StackPanel>
+	</StackPanel>
+</UserControl>
