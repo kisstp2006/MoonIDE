@@ -55,5 +55,13 @@ namespace MoonIDE.Lua
             public double Tan(double value) => Math.Tan(value);
         }
 
+        public class LuaRandomWrapper
+        {
+            public int Next(int minValue, int maxValue) => Random.Next(minValue, maxValue);
+            public int Next(int maxValue) => Random.Next(maxValue);
+            public int Next() => Random.Next();
+            public void NextBytes(byte[] buffer) => Random.NextBytes(buffer);
+
+        }
     }
 }

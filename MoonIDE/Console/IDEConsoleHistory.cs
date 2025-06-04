@@ -9,13 +9,9 @@ namespace MoonIDE.Console
 {
     internal class IDEConsoleHistory
     {
-        List<string> history = new List<string>();
-
         public List<string> getHistory()
         {
-            history = Debug.GetLogedMessages();
-
-            return history;
+            return Debug.GetLogedMessages();
         }
     }
 }

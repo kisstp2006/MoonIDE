@@ -1,5 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Threading; // Add this namespace for Dispatcher
+using Avalonia.VisualTree; // Add this namespace for VisualTreeAttachmentEventArgs
 using AvaloniaEdit.Highlighting; // Add this namespace for syntax highlighting definitions
 using MoonIDE.Console;
 using MoonIDE.Lua;
@@ -10,6 +12,8 @@ namespace MoonIDE.Views;
 public partial class MainView : UserControl
 {
     LuaInterpreter luaInterpreter;
+    private int _lastLogCount = 0;
+
     public MainView()
     {
         InitializeComponent();
@@ -29,11 +33,24 @@ public partial class MainView : UserControl
         luaInterpreter  = new LuaInterpreter();
         luaInterpreter.init();
 
-       
+        // Subscribe to log updates
+        MoonIDE.Lua.Debug.LogUpdated += OnLogUpdated;
 
-        // Try to get the Lua highlighting definition
+       
         GetIDEHistory();
     }
+
+    private void OnLogUpdated()
+    {
+        // Only update if there are new log messages
+        var logCount = MoonIDE.Lua.Debug.GetLogedMessages().Count;
+        if (logCount > _lastLogCount)
+        {
+            _lastLogCount = logCount;
+            Dispatcher.UIThread.Post(GetIDEHistory);
+        }
+    }
+
     private void ClearConsoleOutput_Click(object? sender, RoutedEventArgs e)
     {
         ConsoleOutput.Text = string.Empty;
@@ -42,7 +59,6 @@ public partial class MainView : UserControl
     {
         luaInterpreter.RegisterDefaultWrappers();
         luaInterpreter.ExecuteScript(CodeEditor.Text);
-        GetIDEHistory();
     }
 
     private void CopyConsoleOutput_Click(object? sender, RoutedEventArgs e)
@@ -56,13 +72,10 @@ public partial class MainView : UserControl
     }
     public void GetIDEHistory()
     {
-        ConsoleOutput.Text = "";
-        IDEConsoleHistory history = new IDEConsoleHistory();
-        // Load the console history into the console output TextBox
-        var consoleHistory = history.getHistory();
-        foreach (var message in consoleHistory)
-        {
-            ConsoleOutput.Text += message + "\n";
-        }
+        var consoleHistory = new IDEConsoleHistory().getHistory();
+        ConsoleOutput.Text = string.Join('\n', consoleHistory);
+        _lastLogCount = consoleHistory.Count; // Update the count after refresh
     }
+
+
 }

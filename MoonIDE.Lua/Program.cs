@@ -50,7 +50,9 @@ using static MoonIDE.Lua.LuaWrapper;
                 script.Globals["Debug"] = new LuaWrapper.LuaDebugWrapper();
                 UserData.RegisterType<LuaMathWrapper>();
                 script.Globals["Math"] = new LuaWrapper.LuaMathWrapper();
-            }
+                UserData.RegisterType<LuaRandomWrapper>();
+                script.Globals["Random"] = new LuaWrapper.LuaRandomWrapper();
+        }
 
             public void ExecuteScript(string scriptContent)
             {

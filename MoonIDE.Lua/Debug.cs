@@ -9,28 +9,31 @@ namespace MoonIDE.Lua
     public static class Debug
     {
         public static List<string> LogedMessages { get; private set; } = new List<string>();
+        public static event Action? LogUpdated;
+
+        private static void LogMessage(string message, ConsoleColor color, string prefix)
+        {
+            string formattedMessage = $"[{DateTime.Now:HH:mm:ss}][{prefix}] {message}";
+            Console.ForegroundColor = color;
+            Console.WriteLine(formattedMessage);
+            LogedMessages.Add(formattedMessage);
+            Console.ResetColor();
+            LogUpdated?.Invoke();
+        }
+
         public static void Log(string message)
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}][LOG] {message}");
-            LogedMessages.Add($"[{DateTime.Now:HH:mm:ss}][LOG] {message}");
-            Console.ResetColor();
+            LogMessage(message, ConsoleColor.White, "LOG");
         }
 
         public static void Warning(string message)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}][WARNING] {message}");
-            LogedMessages.Add($"[{DateTime.Now:HH:mm:ss}][WARNING] {message}");
-            Console.ResetColor();
+            LogMessage(message, ConsoleColor.Yellow, "WARNING");
         }
 
         public static void Error(string message)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}][ERROR] {message}");
-            LogedMessages.Add($"[{DateTime.Now:HH:mm:ss}][ERROR] {message}");
-            Console.ResetColor();
+            LogMessage(message, ConsoleColor.Red, "ERROR");
         }
         public static void ClearLog()
         {
