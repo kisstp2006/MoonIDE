@@ -11,9 +11,11 @@ namespace MoonIDE.Console
     {
         List<string> history = new List<string>();
 
-        void getHistory()
+        public List<string> getHistory()
         {
             history = Debug.GetLogedMessages();
+
+            return history;
         }
     }
 }

@@ -15,6 +15,9 @@ namespace MoonIDE.Lua
             public void Warning(string message) => Debug.Warning(message);
             public void Error(string message) => Debug.Error(message);
 
+            public void ClearLog() => Debug.ClearLog();
+            public List<string> GetLogedMessages() => Debug.GetLogedMessages();
+
             public string ReadLine() => Read.ReadLine();
             public string ReadKey() => Read.ReadKey();
         }

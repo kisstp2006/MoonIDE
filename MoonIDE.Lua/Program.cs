@@ -41,7 +41,7 @@ using static MoonIDE.Lua.LuaWrapper;
 
             public  void init() 
             { 
-                Console.WriteLine("Lua Interpreter Initialized");
+                Debug.Log("Lua Interpreter Initialized");
             }
 
             public void RegisterDefaultWrappers()
