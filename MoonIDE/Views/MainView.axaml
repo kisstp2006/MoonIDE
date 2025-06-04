@@ -1,0 +1,130 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:MoonIDE.ViewModels"
+             xmlns:avaloniaEdit="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
+             x:Class="MoonIDE.Views.MainView"
+             x:DataType="vm:MainViewModel">
+	<UserControl.Styles>
+		<!-- Alapértelmezett stílus a TextBox-hoz -->
+		<Style Selector="TextBox">
+			<Setter Property="Background" Value="#2D2D2D"/>
+			<Setter Property="Foreground" Value="White"/>
+		</Style>
+		<!-- Hover állapot stílusa -->
+		<Style Selector="TextBox:pointerover">
+			<Setter Property="Background" Value="#2D2D2D"/>
+		</Style>
+		<Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
+			<Setter Property="Background" Value="#2D2D2D"/>
+			<Setter Property="BorderBrush" Value="#2D2D2D"/>
+		</Style>
+		<Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+			<Setter Property="Background" Value="#2D2D2D"/>
+			<Setter Property="BorderBrush" Value="#2D2D2D"/>
+		</Style>
+	</UserControl.Styles>
+
+	<DockPanel>
+		<!-- Menüsor -->
+		<Menu DockPanel.Dock="Top" Background="#333333" Foreground="White">
+			<MenuItem Header="File" Background="#2D2D2D">
+				<MenuItem Header="New" Background="#2D2D2D"/>
+				<MenuItem Header="Open..." Background="#2D2D2D" />
+				<MenuItem Header="Save" Background="#2D2D2D" />
+				<Separator />
+				<MenuItem Header="Exit" Background="#2D2D2D" Click=""/>
+			</MenuItem>
+			<MenuItem Header="_Edit">
+				<MenuItem Header="Undo" Background="#2D2D2D"/>
+				<MenuItem Header="Redo" Background="#2D2D2D"/>
+				<Separator />
+				<MenuItem Header="Cut" Background="#2D2D2D"/>
+				<MenuItem Header="Copy" Background="#2D2D2D"/>
+				<MenuItem Header="Paste" Background="#2D2D2D"/>
+			</MenuItem>
+			<MenuItem Header="_Settings">
+				<MenuItem Header="Preferences" Background="#2D2D2D"/>
+			</MenuItem>
+			<MenuItem Header="_Help">
+				<MenuItem Header="About" Background="#2D2D2D" />
+			</MenuItem>
+		</Menu>
+
+		<!-- Eszköztár -->
+		<Border DockPanel.Dock="Top" Background="#333333" Padding="4">
+			<StackPanel Orientation="Horizontal" Spacing="4">
+				 <Button Click="Start_Click">
+					<StackPanel Orientation="Horizontal" Spacing="4">
+						<Image Source="" Width="16" Height="16"/>
+						<TextBlock Text="Run"/>
+					</StackPanel>
+				</Button>
+				<Button Content="Stop" />
+				<!-- További gombok -->
+			</StackPanel>
+		</Border>
+
+		<!-- Fő tartalom -->
+		<Grid RowDefinitions="3*,Auto,1*">
+			<!-- Kód szerkesztő -->
+			<avaloniaEdit:TextEditor x:Name="CodeEditor"
+                         Grid.Row="0"
+                         FontFamily="Consolas"
+                         FontSize="14"
+                         ShowLineNumbers="True"
+                         Background="#2D2D2D"
+                         Foreground="White"
+                         SyntaxHighlighting="Lua"/>
+
+			<!-- Elválasztó -->
+			<GridSplitter Grid.Row="1"
+						  CornerRadius="0"
+						  Height="5"
+						  Background="Gray"
+						  HorizontalAlignment="Stretch"
+						  VerticalAlignment="Center"
+						  ShowsPreview="True" />
+
+			<Border Grid.Row="2" Background="#1E1E1E" CornerRadius="4" Margin="5">
+				<StackPanel>
+					<!-- Fejléc sáv -->
+					<Border Background="#2D2D30" Padding="6">
+						<DockPanel>
+							<TextBlock Text="Console"
+									   Foreground="White"
+									   FontWeight="Bold"
+									   FontSize="14"
+									   VerticalAlignment="Center"
+									   DockPanel.Dock="Left"/>
+
+							<StackPanel Orientation="Horizontal"
+										HorizontalAlignment="Right"
+										Spacing="6"
+										DockPanel.Dock="Right">
+								<Button Content="Copy" Click="CopyConsoleOutput_Click"/>
+								<Button Content="Delete" Click="ClearConsoleOutput_Click"/>
+							</StackPanel>
+						</DockPanel>
+					</Border>
+
+					<!-- Konzol kimenet scrollal -->
+					<ScrollViewer MaxHeight="150"
+								  Margin="0,4,0,0"
+								  VerticalScrollBarVisibility="Auto"
+								  HorizontalScrollBarVisibility="Auto">
+						<TextBox x:Name="ConsoleOutput"
+								 IsReadOnly="True"
+								 FontFamily="Consolas"
+								 FontSize="13"
+								 Background="Transparent"
+								 Foreground="#D4D4D4"
+								 Padding="8"
+								 TextWrapping="Wrap"
+								 AcceptsReturn="True"
+								 BorderThickness="0"/>
+					</ScrollViewer>
+				</StackPanel>
+			</Border>
+		</Grid>
+	</DockPanel>
+</UserControl>
