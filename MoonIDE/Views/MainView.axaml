@@ -32,7 +32,7 @@
 				<MenuItem Header="Open..." Background="#2D2D2D" />
 				<MenuItem Header="Save" Background="#2D2D2D" />
 				<Separator />
-				<MenuItem Header="Exit" Background="#2D2D2D" Click=""/>
+				<MenuItem Header="Exit" Background="#2D2D2D" Click="Exit_Click"/>
 			</MenuItem>
 			<MenuItem Header="_Edit">
 				<MenuItem Header="Undo" Background="#2D2D2D"/>

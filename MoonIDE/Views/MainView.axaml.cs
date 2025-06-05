@@ -4,6 +4,7 @@ using Avalonia.Threading; // Add this namespace for Dispatcher
 using AvaloniaEdit.Highlighting; // Add this namespace for syntax highlighting definitions
 using MoonIDE.Console;
 using MoonIDE.Lua;
+using System;
 using System.Collections.Generic;
 
 namespace MoonIDE.Views;
@@ -25,6 +26,7 @@ public partial class MainView : UserControl
         CodeEditor.Options.ShowEndOfLine=true;
         CodeEditor.Options.ShowBoxForControlCharacters = true;
         CodeEditor.Options.HideCursorWhileTyping = true;
+        CodeEditor.Options.CutCopyWholeLine = true;
 
 
 
@@ -65,11 +67,6 @@ public partial class MainView : UserControl
     {
         
     }
-
-    private void Exit_Click(object? sender, RoutedEventArgs e)
-    {
-         
-    }
     public void GetIDEHistory()
     {
         var consoleHistory = new IDEConsoleHistory().getHistory();
@@ -77,5 +74,8 @@ public partial class MainView : UserControl
         _lastLogCount = consoleHistory.Count; // Update the count after refresh
     }
 
-
+    private void Exit_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        Environment.Exit(0);
+    }
 }
