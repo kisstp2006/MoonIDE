@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "MoonIDE.IO": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

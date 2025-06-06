@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MoonIDE.IO\MoonIDE.IO.csproj" />
     <ProjectReference Include="..\MoonIDE.Lua\MoonIDE.Lua.csproj" />
   </ItemGroup>
 </Project>

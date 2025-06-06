@@ -78,4 +78,12 @@ public partial class MainView : UserControl
     {
         Environment.Exit(0);
     }
+    private void Open_Preferences(object? sender, Avalonia.Interactivity.RoutedEventArgs e) {
+        WindowSettings settings = new WindowSettings();
+
+        settings.Activate();
+        settings.Show();
+
+
+    }
 }

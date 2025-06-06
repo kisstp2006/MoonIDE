@@ -63,5 +63,10 @@ namespace MoonIDE.Lua
             public void NextBytes(byte[] buffer) => Random.NextBytes(buffer);
 
         }
+
+        public class LuaIOWrapper
+        {
+
+        }
     }
 }

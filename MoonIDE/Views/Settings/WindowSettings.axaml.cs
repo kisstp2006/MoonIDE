@@ -10,4 +10,8 @@ public partial class WindowSettings : Window
     {
         InitializeComponent();
     }
+    void LoadSettings() { 
+    
+    
+    }
 }
