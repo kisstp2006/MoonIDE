@@ -3,30 +3,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		
         x:Class="MoonIDE.AboutWindow"
-        Title="AboutWindow"
-		Background="#000000">
-	<Grid>
-		<DockPanel>
-			<TextBlock Text="MoonIDE"
-					   Foreground="White"
-					   FontSize="32"
-					   VerticalAlignment="Center"/>
-		</DockPanel>
-		<Border Margin="10,50,10,10"
-			Background="#2B2B2B"
-			CornerRadius="5"
-			BorderBrush="#2B2B2B"
-			BorderThickness="1">
-			<Grid>
-				<TextBlock Text="License go here"
-						   x:Name="License"
-                           HorizontalAlignment="Center"
+        Title="About MoonIDE"
+        Background="#1E1E1E"
+        MinWidth="400" MinHeight="300"
+        MaxWidth="800" MaxHeight="600"
+        CanResize="False">
+    <Grid>
+        <DockPanel>
+            <!-- Header -->
+            <Border Background="#2D2D30" Padding="10">
+                <TextBlock Text="About MoonIDE"
+                           Foreground="White"
+                           FontSize="24"
+                           FontWeight="Bold"
                            VerticalAlignment="Center"
-                           FontSize="18"
-                           Foreground="White" />
-			</Grid>
+                           HorizontalAlignment="Center" />
+            </Border>
 
-		</Border>
-	</Grid>
+            <!-- Content -->
+            <Border Margin="10"
+                    Background="#2D2D2D"
+                    CornerRadius="5"
+                    BorderBrush="#333333"
+                    BorderThickness="1"
+                    DockPanel.Dock="Bottom">
+                <ScrollViewer>
+                    <TextBlock Text="License information goes here."
+                               x:Name="License"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               FontSize="16"
+                               Foreground="#D4D4D4"
+                               TextWrapping="Wrap"
+                               Margin="10" />
+                </ScrollViewer>
+            </Border>
+        </DockPanel>
+    </Grid>
 </Window>
