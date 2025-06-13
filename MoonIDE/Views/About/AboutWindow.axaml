@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MoonIDE.AboutWindow"
+        Title="AboutWindow"
+		Background="#000000">
+	<Grid>
+		<DockPanel>
+			<TextBlock Text="MoonIDE"
+					   Foreground="White"
+					   FontSize="32"
+					   VerticalAlignment="Center"/>
+		</DockPanel>
+		<Border Margin="10,50,10,10"
+			Background="#2B2B2B"
+			CornerRadius="5"
+			BorderBrush="#2B2B2B"
+			BorderThickness="1">
+			<Grid>
+				<TextBlock Text="License go here"
+						   x:Name="License"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="18"
+                           Foreground="White" />
+			</Grid>
+
+		</Border>
+	</Grid>
+</Window>

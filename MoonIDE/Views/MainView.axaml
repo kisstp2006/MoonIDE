@@ -47,7 +47,7 @@
 				<MenuItem Header="Preferences" Background="#2D2D2D" Click="Open_Preferences"/>
 			</MenuItem>
 			<MenuItem Header="_Help">
-				<MenuItem Header="About" Background="#2D2D2D" />
+				<MenuItem Header="About" Background="#2D2D2D" Click="About_Click"/>
 			</MenuItem>
 		</Menu>
 

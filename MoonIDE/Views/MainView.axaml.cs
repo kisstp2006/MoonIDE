@@ -78,6 +78,17 @@ public partial class MainView : UserControl
     {
         Environment.Exit(0);
     }
+    private void About_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e) { 
+        AboutWindow aboutwin = new AboutWindow();
+        aboutwin.Show();
+
+
+        aboutwin.Closed += (s, e) =>
+        {
+            
+        };
+    }
+
     private void Open_Preferences(object? sender, Avalonia.Interactivity.RoutedEventArgs e) {
         WindowSettings settings = new WindowSettings();
 
