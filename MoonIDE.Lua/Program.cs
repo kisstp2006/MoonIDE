@@ -1,8 +1,9 @@
 ﻿using MoonIDE.Lua;
 using MoonSharp.Interpreter;
 using static MoonIDE.Lua.LuaWrapper;
+using MoonIDE.Lua.Extensions;
 
-    namespace Program
+namespace Program
     {
         class Program
         {
@@ -33,7 +34,10 @@ using static MoonIDE.Lua.LuaWrapper;
         public  class LuaInterpreter
         {
             Script script;
-            public LuaInterpreter()
+            ExtensionLoader extensionLoader = new ExtensionLoader();
+
+        // Constructor to initialize the Lua interpreter
+        public LuaInterpreter()
             {
                 // Initialize the Lua interpreter
                 script = new Script();
@@ -42,7 +46,9 @@ using static MoonIDE.Lua.LuaWrapper;
             public  void init() 
             { 
                 Debug.Log("Lua Interpreter Initialized");
-            }
+
+                extensionLoader.LoadExtensions();
+        }
 
             public void RegisterDefaultWrappers()
             {
