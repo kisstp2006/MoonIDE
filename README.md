@@ -65,4 +65,4 @@ If you have ideas for **features**, **bug fixes**, or **improvements**, feel fre
 ## 📄 License
 
 This project is licensed under the **GPLv3 License**.  
-See the [LICENSE](LICENSE) file for details.
+See the [LICENSE](LICENSE.txt) file for details.
