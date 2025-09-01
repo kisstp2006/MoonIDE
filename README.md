@@ -9,7 +9,13 @@ Moon IDE is a lightweight, modern Integrated Development Environment for Lua, bu
 - 🎨 Customizable Themes (light/dark mode support)
 - 🔧 Built on .NET 8 for performance and cross-platform potential
 📸 Screenshots
-Add screenshots here to showcase the UI and features
+
+UI -Made with Avalonia:
+<img width="1426" height="745" alt="{D1794C0B-E721-4772-A5CD-2A87B57C7EA3}" src="https://github.com/user-attachments/assets/6c7aa7c7-5a6e-4635-94ea-37fb893cf4e5" />
+
+Console :
+<img width="1105" height="628" alt="{EA04CD9B-72A1-4793-B8BF-0C50DD41458B}" src="https://github.com/user-attachments/assets/d2ca1311-5722-429f-a9e5-385f84ce228a" />
+
 
 🛠️ Installation
 - Clone the repository:
@@ -24,6 +30,7 @@ Lua is a powerful, lightweight scripting language used in game engines, embedded
 - MoonSharp — Lua interpreter for .NET
 - .NET 8 — Modern, fast, and open-source
 - Avalonia - Open Source WPF like UI for C#
+
 🤝 Contributing
 Pull requests are welcome! If you have ideas for features, bug fixes, or improvements, feel free to fork the repo and submit a PR.
 📄 License
