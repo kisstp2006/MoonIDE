@@ -52,6 +52,7 @@ namespace Program
 
             public void RegisterDefaultWrappers()
             {
+                //TODO:: Make it load all the Types automaticly
                 UserData.RegisterType<LuaDebugWrapper>();
                 script.Globals["Debug"] = new LuaWrapper.LuaDebugWrapper();
                 UserData.RegisterType<LuaMathWrapper>();

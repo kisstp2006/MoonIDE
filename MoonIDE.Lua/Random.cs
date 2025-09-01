@@ -14,14 +14,26 @@ namespace MoonIDE.Lua
         }
         static public int Next(int minValue, int maxValue)
         {
+            if (minValue == maxValue)
+            {
+                throw new ArgumentOutOfRangeException("minValue should not be equal maxValue.");
+                return 0;
+            }
+
             if (minValue >= maxValue)
+            {
                 throw new ArgumentOutOfRangeException("minValue must be less than maxValue.");
+                return 0;
+            }
             return new System.Random().Next(minValue, maxValue);
         }
         static public int Next(int maxValue)
         {
             if (maxValue <= 0)
+            {
                 throw new ArgumentOutOfRangeException("maxValue must be greater than 0.");
+                return 0;
+            }
             return new System.Random().Next(maxValue);
         }
         static public int Next()
