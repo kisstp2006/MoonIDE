@@ -8,11 +8,11 @@ Whether you're scripting game logic, prototyping tools, or just exploring Lua, M
 ## 🚀 Features
 
 - ✨ **Lua Execution via MoonSharp** — No external dependencies required  
-- 🖥️ **Syntax Highlighting** for Lua scripts  
-- 📂 **Project Explorer** to manage your Lua files  
+- 🖥️ **Syntax Highlighting** for Lua scripts  (WIP)
+- 📂 **Project Explorer** to manage your Lua files  (WIP)
 - 🧪 **Live Console Output** for real-time feedback  
-- 💾 **Auto Save & File Management**  
-- 🎨 **Customizable Themes** (light/dark mode support)  
+- 💾 **Auto Save & File Management**  (WIP)
+- 🎨 **Customizable Themes** (light/dark mode support)  (WIP)
 - 🔧 Built on **.NET 8** for performance and cross-platform potential  
 
 ---
